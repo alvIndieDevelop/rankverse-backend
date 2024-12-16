@@ -1,5 +1,5 @@
 import User, { IUser } from '../user/user.model';
-import jwtToken from 'src/utils/jwt-token';
+import jwtToken from '../../utils/jwt-token';
 
 export const register = async (userData: Partial<IUser>): Promise<IUser> => {
   try {

@@ -5,9 +5,10 @@ import cors, { CorsOptions } from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
-import router from './app.module';
-
 dotenv.config();
+
+import router from './app.module';
+import { connectDB } from './db/mongodb';
 
 const app: Application = express();
 const serve: Server = createServer(app);
@@ -40,6 +41,14 @@ app.use(express.static('public'));
 // routes
 app.use(router);
 
-serve.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+connectDB()
+  .then(() => {
+    serve.listen(port, () => {
+      console.log('Connected to database');
+      console.log(`Example app listening on port ${port}`);
+    });
+  })
+  .catch((error) => {
+    console.error(error);
+    console.log('Error en la conexion base de datos');
+  });

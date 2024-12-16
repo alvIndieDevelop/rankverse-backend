@@ -1,5 +1,5 @@
 import { connect } from 'mongoose';
-import config from 'src/utils/config';
+import config from '../utils/config';
 
 const { DATABASE } = config;
 

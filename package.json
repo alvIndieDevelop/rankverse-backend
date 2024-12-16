@@ -5,11 +5,10 @@
   "repository": "git@github.com:alvIndieDevelop/rankverse-backend.git",
   "author": "Alvaro Martin Caballero <alvindiedevelop@gmail.com>",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "start": "npm run serve",
     "serve": "node build/index.js",
-    "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec\"",
+    "dev": "concurrently \"nodemon\"",
     "build": "tsc -p .",
     "tsc": "tsc"
   },
